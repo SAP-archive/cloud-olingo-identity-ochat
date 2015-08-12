@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JPAEDMMappingModel
+	xmlns="http://www.apache.org/olingo/odata2/jpa/processor/api/model/mapping">
+	<PersistenceUnit name="OCHAT">
+		<EDMSchemaNamespace>OCHAT</EDMSchemaNamespace>
+		<JPAEntityTypes>
+			<JPAEntityType name="Message">
+				<EDMEntityType>Message</EDMEntityType>
+				<EDMEntitySet>Messages</EDMEntitySet>
+				<JPAAttributes>
+				</JPAAttributes>
+				<JPARelationships>
+					<JPARelationship name="conversation">Conversation</JPARelationship>
+					<JPARelationship name="sender">Sender</JPARelationship>
+				</JPARelationships>
+			</JPAEntityType>
+			<JPAEntityType name="Conversation">
+				<EDMEntityType>Conversation</EDMEntityType>
+				<EDMEntitySet>Conversations</EDMEntitySet>
+				<JPAAttributes>
+				</JPAAttributes>
+				<JPARelationships>
+					<JPARelationship name="messages">Messages</JPARelationship>
+					<JPARelationship name="messageUsers">ConversationMembers</JPARelationship>
+					<JPARelationship name="creator">Creator</JPARelationship>
+				</JPARelationships>
+			</JPAEntityType>
+			<JPAEntityType name="MessageUser">
+				<EDMEntityType>MessageUser</EDMEntityType>
+				<EDMEntitySet>MessageUsers</EDMEntitySet>
+				<JPAAttributes>
+				</JPAAttributes>
+				<JPARelationships>
+					<!-- <JPARelationship name="conversations">Conversations</JPARelationship> -->
+				</JPARelationships>
+			</JPAEntityType>
+		</JPAEntityTypes>
+	</PersistenceUnit>
+</JPAEDMMappingModel>

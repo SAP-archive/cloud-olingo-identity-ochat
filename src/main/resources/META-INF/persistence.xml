@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="OCHAT" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<non-jta-data-source>java:comp/env/jdbc/hanaDB</non-jta-data-source>
+		<class>com.xsmp.ochat.model.MessageUser</class>
+		<class>com.xsmp.ochat.model.Conversation</class>
+		<class>com.xsmp.ochat.model.Message</class>
+		<shared-cache-mode>NONE</shared-cache-mode>
+		<properties>
+			<property name="sql.longvar_is_lob" value="true"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+            <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+            <property name="eclipselink.jdbc.native-sql" value="true"></property>
+            <!-- 
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:HSQL_OCHAT"/> 
+			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.password" value=""/>
+			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/load-script.sql"/>
+			<property name="eclipselink.session.customizer" value="com.xsmp.ochat.util.ExtraDDL" />
+			<property name="eclipselink.logging.level" value="FINE"/>
+			<property name="eclipselink.logging.parameters" value="true"/> 
+			-->
+			
+		</properties>
+	</persistence-unit>
+</persistence>

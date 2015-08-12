@@ -37,7 +37,7 @@ public class Conversation {
 	@TableGenerator(name = "ConversationGenerator", table = "OCHAT_ID_GENERATOR", pkColumnName = "GENERATOR_NAME", 
 			valueColumnName = "GENERATOR_VALUE", pkColumnValue = "Conversation", initialValue = 1, allocationSize = 1)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "MessageGroupGenerator")
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "ConversationGenerator")
 	@Column(name = "CONVERSATION_ID")
 	private long conversationId;
 	

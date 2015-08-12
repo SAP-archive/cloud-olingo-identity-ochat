@@ -28,7 +28,7 @@ public class PendingNotification {
 			pkColumnName = "GENERATOR_NAME", valueColumnName = "GENERATOR_VALUE", 
 			pkColumnValue = "PendingNotification", initialValue = 1, allocationSize = 1)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "NotificationGenerator")
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "PendingNotificationGenerator")
 	@Column(name = "PENDING_NOTIFICATION_ID")
 	private Integer pendingNotificationId;
 	

@@ -23,7 +23,7 @@ import javax.persistence.UniqueConstraint;
 public class NotificationTarget {
 	@TableGenerator(name = "NotificationTargetGenerator", table = "OCHAT_ID_GENERATOR", pkColumnName = "GENERATOR_NAME", valueColumnName = "GENERATOR_VALUE", pkColumnValue = "NotificationTarget", initialValue = 1, allocationSize = 10)
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE, generator = "NotificationGenerator")
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "NotificationTargetGenerator")
 	@Column(name = "NOTIFICATION_TARGET_ID")
 	private Integer notficationtargetId;
 

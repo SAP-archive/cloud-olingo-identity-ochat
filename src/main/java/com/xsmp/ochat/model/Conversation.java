@@ -44,9 +44,6 @@ public class Conversation {
 	@Column(name = "NAME")
 	private String name;
 	
-	//@JoinColumn(name = "CREATOR", nullable=false)
-	//private MessageUser creator;
-	
 	@ManyToMany
 	@JoinTable(
 	      name="OCHAT_USER_CONVERSATION",

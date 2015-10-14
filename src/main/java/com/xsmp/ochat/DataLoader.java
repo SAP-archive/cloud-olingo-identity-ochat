@@ -3,9 +3,11 @@ package com.xsmp.ochat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.InitialContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
+//import javax.transaction.UserTransaction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +48,8 @@ public class DataLoader {
 		TypedQuery<Message> queryBP;
 		List<Message> resBP;
 		try {
+			//UserTransaction transaction = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+			//transaction.begin();
 			em.getTransaction().begin();
 			queryBP = em.createQuery("SELECT c FROM Message c", Message.class);
 			resBP = queryBP.getResultList();
@@ -92,6 +96,7 @@ public class DataLoader {
 				g1.getMessages().add(m);
 				
 				em.getTransaction().commit();
+				//transaction.commit();
 				queryBP = em.createQuery("SELECT c FROM Message c",
 						Message.class);
 				resBP = queryBP.getResultList();
@@ -109,6 +114,8 @@ public class DataLoader {
 		TypedQuery<MessageUser> queryBP;
 		List<MessageUser> resBP;
 		try {
+			//UserTransaction transaction = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+			//transaction.begin();
 			em.getTransaction().begin();
 			queryBP = em
 					.createQuery("SELECT c FROM MessageUser c", MessageUser.class);
@@ -139,6 +146,7 @@ public class DataLoader {
 				em.persist(u3);
 				
 				em.getTransaction().commit();
+				//transaction.commit();
 				queryBP = em.createQuery("SELECT c FROM MessageUser c",
 						MessageUser.class);
 				resBP = queryBP.getResultList();
@@ -156,6 +164,8 @@ public class DataLoader {
 		TypedQuery<Conversation> queryBP;
 		List<Conversation> resBP;
 		try {
+			//UserTransaction transaction = (UserTransaction)new InitialContext().lookup("java:comp/UserTransaction");
+			//transaction.begin();
 			em.getTransaction().begin();
 			queryBP = em
 					.createQuery("SELECT c FROM Conversation c", Conversation.class);
@@ -202,6 +212,7 @@ public class DataLoader {
 				em.persist(g4);
 				
 				em.getTransaction().commit();
+				//transaction.commit();
 				queryBP = em.createQuery("SELECT c FROM Conversation c",
 						Conversation.class);
 				resBP = queryBP.getResultList();

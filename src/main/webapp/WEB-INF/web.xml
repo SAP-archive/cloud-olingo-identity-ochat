@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name>OChat</display-name>
+  <display-name>OChat-old</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+  <!--  Running as a Tomcat 7 configuration in HCP, we must include this resource reference -->
   <resource-ref>
-      <res-ref-name>jdbc/hanaDB</res-ref-name>
+      <res-ref-name>jdbc/DefaultDB</res-ref-name>
       <res-type>javax.sql.DataSource</res-type>
   </resource-ref>
-  <!-- Obtaining HCP User Attributes per https://help.hana.ondemand.com/help/frameset.htm?9e2e0d7e91cc44e79901a756bf7b2d88.html -->
   <resource-ref>
     <res-ref-name>user/Provider</res-ref-name>
     <res-type>com.sap.security.um.user.UserProvider</res-type>
@@ -26,6 +26,7 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <!--
   <filter>
     <filter-name>CorsFilter</filter-name>
     <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
@@ -38,10 +39,13 @@
       <param-value></param-value>
     </init-param>
   </filter>
+  -->
+  <!-- 
   <filter-mapping>
     <filter-name>CorsFilter</filter-name>
     <url-pattern>/media-upload</url-pattern>
   </filter-mapping>
+  -->
   <servlet-mapping>
     <servlet-name>ODataServlet</servlet-name>
     <url-pattern>/api/*</url-pattern>
@@ -56,16 +60,17 @@
       <http-method>POST</http-method>
     </web-resource-collection>
     <auth-constraint>
-	  <role-name>Everyone</role-name>
+      <role-name>Everyone</role-name>
     </auth-constraint>
     <user-data-constraint>
       <transport-guarantee>NONE</transport-guarantee>
     </user-data-constraint>
   </security-constraint>
   <login-config>
-	<auth-method>FORM</auth-method>
+    <auth-method>BASIC</auth-method>
   </login-config>
   <security-role>
-	<role-name>Everyone</role-name>
+    <description>All SAP HANA Cloud Platform users</description>
+    <role-name>Everyone</role-name>
   </security-role>
 </web-app>

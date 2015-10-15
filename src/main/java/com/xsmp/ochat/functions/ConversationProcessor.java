@@ -43,7 +43,7 @@ public class ConversationProcessor {
 	@EdmFunctionImport(
 			returnType = @ReturnType(type = Type.ENTITY, isCollection = false), 
 			entitySet = "Conversations", 
-			httpMethod = HttpMethod.POST)
+			httpMethod = HttpMethod.GET)
 	public Conversation createConversation(
 			@EdmFunctionImportParameter(name = "TargetUserId", facets = @EdmFacets(nullable = false)) final Integer targetMessageUserId)
 					throws ODataException {

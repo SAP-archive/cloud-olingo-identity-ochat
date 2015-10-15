@@ -45,7 +45,7 @@ public class ConversationProcessor {
 			entitySet = "Conversations", 
 			httpMethod = HttpMethod.POST)
 	public Conversation createConversation(
-			@EdmFunctionImportParameter(name = "TargetUserId", facets = @EdmFacets(nullable = false)) final int targetMessageUserId)
+			@EdmFunctionImportParameter(name = "TargetUserId", facets = @EdmFacets(nullable = false)) final Integer targetMessageUserId)
 					throws ODataException {
 		
 		Conversation result = null;
@@ -92,7 +92,7 @@ public class ConversationProcessor {
 					// must be a two person conversation
 					if (c.getMessageUsers().size() == 2) {
 						for (MessageUser u : c.getMessageUsers()) {
-							if (u.getUserId() == targetMessageUserId) {
+							if (u.getUserId() == targetMessageUserId.intValue()) {
 								found = true;
 								result = c;
 								break;

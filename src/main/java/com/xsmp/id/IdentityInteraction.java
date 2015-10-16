@@ -97,7 +97,7 @@ public class IdentityInteraction {
 		TypedQuery<MessageUser> userQuery;
 		List<MessageUser> resultList;
 		
-		em.getTransaction().begin();
+		
 		try {
 			userQuery = em.createQuery("SELECT m FROM MessageUser m WHERE m.username = :user", MessageUser.class);
 			userQuery.setParameter("user", nameId);
@@ -110,6 +110,7 @@ public class IdentityInteraction {
 				result = resultList.get(0);
 			}
 			else {
+				em.getTransaction().begin();
 				MessageUser newUser = new MessageUser();
 				newUser.setUsername(nameId);
 				newUser.setFirstName(firstName);

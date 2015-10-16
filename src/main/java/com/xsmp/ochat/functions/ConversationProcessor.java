@@ -26,10 +26,7 @@ public class ConversationProcessor {
 	
 	private static Logger logger = LoggerFactory.getLogger(ConversationProcessor.class);
 
-	private EntityManager em;
-
 	public ConversationProcessor() {
-		em = Utility.getEntityManagerFactory().createEntityManager();
 	}
 
 	/**
@@ -49,6 +46,7 @@ public class ConversationProcessor {
 					throws ODataException {
 		
 		Conversation result = null;
+		EntityManager em = Utility.getEntityManagerFactory().createEntityManager();
 
 		if (targetMessageUserId <= 0) {
 			throw new ODataException("Invalid TargetUserId");

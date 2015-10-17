@@ -33,7 +33,7 @@ __Step 5: Install the third party dependencies into your local repository__
 
 __Step 6: Install the third party dependencies into your local repository__
 
-__Step 7: Install the built OChat.war archive as a Java Application in your HANA Cloud Platform account__
+__Step 7: Install the built OChat.war archive as a Java Application in your HANA Cloud Platform account. IMPORTANT: the current version of OChat must be installed in a "Tomcat 7" container.__
 
 __Step 8: Navigate to the web service URL:__
 

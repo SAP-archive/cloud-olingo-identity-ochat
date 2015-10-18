@@ -5,9 +5,7 @@ Welcome
 -------
 This simple web service implements a group messaging API. The source code illustrates how to integrate Apache Olingo into the SAP HANA Cloud Platform's Identity subsystem to provide for integrated authentication and relevance filtering in the OData collections exposed by a service.
 
-The service is designed to be deployed as a Java application in HANA Cloud Platform.
-
-`This service uses Apache Olingo V2 APIs. As of today, the Olingo features required to perform relevance filtering require a pre-release snapshot of Olingo, 2.0.5-SNAPSHOT.  If you don't want to wait for the official release of this version, you will need to download the Olingo V2 git repository and build your own copy of the snapshot for use with the Maven build subsystem.`
+The service is designed to be deployed as a Java application in SAP HANA Cloud Platform.
 
 Installation
 ------------
@@ -34,6 +32,13 @@ __Step 5: Install the third party dependencies into your local repository__
 __Step 6: Install the third party dependencies into your local repository__
 
 __Step 7: Install the built OChat.war archive as a Java Application in your HANA Cloud Platform account. IMPORTANT: the current version of OChat must be installed in a "Java Web Tomcat 7" container.__
+
+*       From the HCP Admin Cockpit, click "Java Applications"
+*       Click "Deploy Application"
+*       Select the built OChat.war file for upload
+*       Select "Java Web Tomcat 7" as the "Runtime Name" -- Apache Olingo V2 by default does not support the JTA elements of the JEE 6 runtime.
+*       Click "Deploy"
+*       Once the application deploys, select "Start"
 
 __Step 8: Navigate to the web service URL:__
 
